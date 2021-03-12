@@ -1,0 +1,2 @@
+module RoomPaymentsHelper
+end

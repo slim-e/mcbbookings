@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :room_payments
+  resources :bookings
   resources :users
   resources :admins
   resources :clients

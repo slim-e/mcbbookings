@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Payment number:</strong>
+  <%= @room_payment.payment_number %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @room_payment.status %>
+</p>
+
+<p>
+  <strong>Paid at:</strong>
+  <%= @room_payment.paid_at %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @room_payment.cost %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @room_payment.service %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @room_payment.booking_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @room_payment.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_room_payment_path(@room_payment) %> |
+<%= link_to 'Back', room_payments_path %>
