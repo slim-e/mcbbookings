@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     @current_cart.line_items.each do |item|
+      item.order.destroy
       @order.line_items << item
       item.cart_id = nil
     end

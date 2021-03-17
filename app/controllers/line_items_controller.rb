@@ -16,14 +16,19 @@ class LineItemsController < ApplicationController
       @line_item.product = chosen_product
     end
 
+    @line_item.order = Order.new unless @line_item.order.present?
+
     # Save and redirect to cart show path
     @line_item.save
+
+    # redirect_to products_path
     redirect_to cart_path(current_cart)
   end
 
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
+
     redirect_to cart_path(@current_cart)
   end
 
@@ -31,6 +36,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.quantity += 1
     @line_item.save
+
     redirect_to cart_path(@current_cart)
   end
 
@@ -38,6 +44,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.quantity -= 1 if @line_item.quantity > 1
     @line_item.save
+
     redirect_to cart_path(@current_cart)
   end
 
