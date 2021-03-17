@@ -1,6 +1,4 @@
 class CartsController < ApplicationController
-  # before_action :set_order
-
   def show
     @cart = @current_cart
   end
@@ -12,10 +10,4 @@ class CartsController < ApplicationController
 
     redirect_to root_path
   end
-
-  # private
-  #
-  # def set_order
-  #   @current_order = Order.new
-  # end
 end

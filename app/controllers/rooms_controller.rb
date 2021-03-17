@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :set_room, only: %i[show edit update destroy]
 
   # GET /rooms or /rooms.json
   def index
@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: "Room was successfully created." }
+        format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to @room, notice: "Room was successfully updated." }
+        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -43,13 +43,13 @@ class RoomsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def room_params
-      params.require(:room).permit(:number, :booked)
-    end
+  # Only allow a list of trusted parameters through.
+  def room_params
+    params.require(:room).permit(:number, :booked)
+  end
 end

@@ -1,5 +1,5 @@
 class RoomPaymentsController < ApplicationController
-  before_action :set_room_payment, only: %i[ show edit update destroy ]
+  before_action :set_room_payment, only: %i[show edit update destroy]
 
   # GET /room_payments or /room_payments.json
   def index
@@ -7,8 +7,7 @@ class RoomPaymentsController < ApplicationController
   end
 
   # GET /room_payments/1 or /room_payments/1.json
-  def show
-  end
+  def show; end
 
   # GET /room_payments/new
   def new
@@ -16,8 +15,7 @@ class RoomPaymentsController < ApplicationController
   end
 
   # GET /room_payments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /room_payments or /room_payments.json
   def create
@@ -25,7 +23,7 @@ class RoomPaymentsController < ApplicationController
 
     respond_to do |format|
       if @room_payment.save
-        format.html { redirect_to @room_payment, notice: "Room payment was successfully created." }
+        format.html { redirect_to @room_payment, notice: 'Room payment was successfully created.' }
         format.json { render :show, status: :created, location: @room_payment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class RoomPaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @room_payment.update(room_payment_params)
-        format.html { redirect_to @room_payment, notice: "Room payment was successfully updated." }
+        format.html { redirect_to @room_payment, notice: 'Room payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @room_payment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class RoomPaymentsController < ApplicationController
   def destroy
     @room_payment.destroy
     respond_to do |format|
-      format.html { redirect_to room_payments_url, notice: "Room payment was successfully destroyed." }
+      format.html { redirect_to room_payments_url, notice: 'Room payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room_payment
-      @room_payment = RoomPayment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def room_payment_params
-      params.require(:room_payment).permit(:payment_number, :status, :paid_at, :cost, :service, :booking_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room_payment
+    @room_payment = RoomPayment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def room_payment_params
+    params.require(:room_payment).permit(:payment_number, :status, :paid_at, :cost, :service, :booking_id, :user_id)
+  end
 end
