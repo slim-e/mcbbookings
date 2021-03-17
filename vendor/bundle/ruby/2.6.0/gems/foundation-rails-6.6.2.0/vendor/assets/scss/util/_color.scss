@@ -2,6 +2,11 @@
 // https://get.foundation
 // Licensed under MIT Open Source
 
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import 'materialize';
+
 @import 'math';
 
 $contrast-warnings: true !default;

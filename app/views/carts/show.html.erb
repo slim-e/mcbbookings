@@ -1,28 +1,49 @@
-<h2>Cart show</h2>
+<div class="row">
+  <div class="col s12">
+    <!-- <p class="center">Vous êtes à l'étape 2 / 4</p> -->
 
-<ul>
-  <% @cart.line_items.each do |line_item| %>
-    <li>Item:
-      <%= line_item.product.name %>/ Price:
-      <%= number_to_currency(line_item.product.price) %>/ Quantity:
-      <%= line_item.quantity %>/ Total Price:
-      <%= number_to_currency(line_item.total_price) %>
-      # See lineItem section below for explanation of line_item links
-      <ul>
-        <li>
-          <%= link_to "Add one", line_item_add_path(:id => line_item), method: :post %>
-          <%= link_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post %>
-        </li>
-        <li>
-          <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
-        </li>
-      </ul>
-      #
-    <% end %>
-</ul>
+    <table class="centered highlight responsive-table white black-text mcb-table">
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th>Prix Unitaire</th>
+          <th>Quantité</th>
+          <th>Sous-Total</th>
+        </tr>
+      </thead>
 
-<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+      <tbody>
+        <% @cart.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
+          <tr>
+            <td><%= line_item.product.name %></td>
+            <td><%= number_to_currency(line_item.product.price) %></td>
+            <td>
+              <%= link_to "(-)", line_item_reduce_path(:id => line_item), method: :post %>
+              &nbsp;<%= line_item.quantity %>&nbsp;
+              <%= link_to "(+)", line_item_add_path(:id => line_item), method: :post %>
+              <br><br>
+              <small><u><%= link_to "Retirer du panier", line_item_path(line_item), method: :delete, class: 'red-text' %></u></small>
+            </td>
+            <td><%= number_to_currency(line_item.total_price) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-# See Order section below for explanation of new_order_path
-<%= link_to "Proceed to checkout", new_order_path %><br>
-<%= link_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>
+<div class="row no-maghin-bottom">
+  <div class="col s12 m4 offset-m8">
+    <h5 class="right">Sous-Total: <%= number_to_currency(@cart.sub_total) %></h5>
+  </div>
+
+  <div class="col s12 m4 offset-m8">
+    <br>
+    <%= link_to "Passer à l'étape suivante", new_order_path, class: 'waves-effect waves-light btn yellow black-text right' %>
+  </div>
+
+  <div class="col s12 m4 offset-m8">
+    <br>
+    <%= link_to "Vider le panier", cart_path(@current_cart), method: :delete, data: {confirm: "Vous êtes sûr de vouloir tout annuler?"}, class: 'right red-text' %>
+  </div>
+</div>

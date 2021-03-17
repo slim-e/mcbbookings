@@ -1,17 +1,62 @@
-<%= form_for(@order) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </p>
-  <p>
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="row no-maghin-bottom">
+  <div class="col s12 m7">
+    <div class="card white mcb-card-form">
+      <h5>Informations de facturation</h5>
+
+      <%= form_for(@order) do |f| %>
+        <form>
+          <div class="row no-maghin-bottom">
+            <div class="input-field col s12 m6">
+              <%= f.text_field :name, required: true, autofocus: true %>
+              <label for="first_name">Prénom</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <%= f.text_field :name, required: true, autofocus: true %>
+              <label for="last_name">Nom de Famille</label>
+            </div>
+          </div>
+          <div class="row no-maghin-bottom">
+            <div class="input-field col s12">
+              <%= f.email_field :email %>
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row no-maghin-bottom">
+            <div class="input-field col s12">
+              <%= f.text_area :address, class: 'materialize-textarea' %>
+              <label for="textarea1">Adresse</label>
+            </div>
+          </div>
+          <div class="row no-maghin-bottom">
+            <div class="col s12 m6 offset-m3">
+              <%= f.submit "Passer au paiement", class: 'mcb-form-cta-btn btn btn-small yellow black-text waves-effect waves-light' %>
+            </div>
+          </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col s12 m5">
+    <ul class="collection with-header">
+      <li class="collection-header"><h5>Mon Panier</h5></li>
+
+      <% @current_cart.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
+        <li class="collection-item">
+          <div><%= line_item.product.name %>&nbsp;x&nbsp;<%= line_item.quantity %>
+            <span class="secondary-content"><%= number_to_currency(line_item.total_price) %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="collection with-header">
+      <li class="collection-header"><h5>Le Total</h5></li>
+      <li class="collection-item">
+        <div>Montant total à payer
+          <span class="secondary-content"><%= number_to_currency(@current_cart.sub_total) %></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

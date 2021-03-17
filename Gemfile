@@ -28,8 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'country_select'
 gem 'simple_form'
 
-gem 'autoprefixer-rails'
-gem 'foundation-rails'
+gem 'materialize-sass', '~> 1.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

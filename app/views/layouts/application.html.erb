@@ -6,13 +6,63 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="yellow lighten-5">
+    <nav class="white">
+      <div class="nav-wrapper">
+        <a href="https://mmacampbrazil.com" class="brand-logo center mcb-logo">
+          <img src="https://mmacampbrazil.com/wp-content/uploads/2020/03/mma-camp-brazil-long-1000px.jpg" alt="MMA Camp Brazil Logo" width="200">
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row no-maghin-bottom">
+        <div class="col s12 m8 offset-m2 l6 offset-l3 center mcb-header">
+          <h3 class="mcb-header-title">Réserver mon stage au MMA Camp Brazil</h3>
+
+          <p class="mcb-header-subtitle">Notre plateforme de réservation en ligne<br>est sécurisée par <u>Stripe</u> et <u>PayPal</u></p>
+        </div>
+      </div>
+
+      <nav class="mcb-breadcrumbs">
+        <div class="nav-wrapper blue darken-4">
+          <div class="col s12">
+            <%= link_to "(1) Choisir mon Séjour", products_path, class: 'breadcrumb white-text' %>
+            <%= link_to "(2) Mon Panier", cart_path(@current_cart), class: 'breadcrumb white-text' %>
+            <%= link_to "(3) Informations clients", new_order_path, class: 'breadcrumb white-text' %>
+            <%= link_to "(4) Paiement", products_path, class: 'breadcrumb white-text' %>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container mcb-content">
+      <%= yield %>
+    </div>
+
+    <footer class="page-footer grey darken-4 mcb-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center">
+            <img src="https://mmacampbrazil.com/wp-content/uploads/2019/10/Logo-MCB-rond.png" alt="" width="100">
+            <h5 class="white-text">MMA Camp Brazil</h5>
+            <p class="grey-text text-lighten-4">Des stages de MMA et Jiu-Jitsu Brésilien authentiques,<br>dans une académie située au coeur de Sao Paulo, Brésil.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center">
+          2021 © MMA Camp Brazil
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

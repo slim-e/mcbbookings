@@ -1,15 +1,28 @@
-<h2>All Products</h2>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col s12 m4">
+      <div class="card yellow">
+        <div class="card-content white-text center">
+          <span class="black-text card-title center"><%= product.name %></span>
+          <i class="black-text card-duration"><%= product.duration_in_days %> jours / <%= product.duration_in_days - 1 %> nuits</i>
+          <ul class="black-text card-list">
+            <li class="valign-wrapper"><i class="material-icons tiny">add</i>Hébergement (en dortoire)</li>
+            <li class="valign-wrapper"><i class="material-icons tiny">add</i>Accès à tous les entraînements</li>
+            <li class="valign-wrapper"><i class="material-icons tiny">add</i>Repas du midi et du soir</li>
+          </ul>
+        </div>
 
-<% @products.each do |product| %>
-  <p>Name:
-    <%= product.name %>; unit price of
-    <%= number_to_currency(product.price) %></p>
-  <p>
-    <%#= link_to "Edit", edit_product_path(product) %>
-    <%# | %>
-    <%#= link_to "Delete", product_path(product), method: :delete, data: {confirm: "Are you sure?"} %>
-    <%= button_to "Add #{product.name} to cart", line_items_path(:product_id => product.id) %>
-  </p>
-<% end%>
+        <div class="card-action white center">
+          <span class="card-price black-text"><%= number_to_currency(product.price) %></span>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: product.id), class: "center card-atc-btn blue darken-4 yellow-text btn btn-small" %>
+        </div>
+      </div>
+    </div>
+  <% end%>
+</div>
 
-<%#= link_to "New product", new_product_path %>
+<div class="row no-maghin-bottom">
+  <div class="col s12 m4 offset-m8">
+    <%= link_to "Voir mon panier", cart_path(@current_cart), class: 'waves-effect waves-light btn yellow black-text right' %>
+  </div>
+</div>

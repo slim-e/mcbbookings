@@ -1,0 +1,120 @@
+@import "materialize";
+
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+body {
+  margin: 0 !important;
+}
+
+.no-maghin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.mcb-logo:hover {
+  background-color: #ffffff !important;
+}
+
+.mcb-header {
+  padding: 60px 0 !important;
+
+  &-title {
+    font-size: 35px;
+    line-height: 1.4em;
+    margin: 0 0 40px;
+  }
+
+  &-subtitle {
+    font-size: 13px;
+    line-height: 1.7em;
+    margin: 0;
+  }
+}
+
+.mcb-breadcrumbs {
+  .nav-wrapper {
+    padding: 0 20px;
+
+    a {
+      font-size: 14px;
+
+      &:hover {
+        background-color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.mcb-content {
+  margin-top: 50px !important;
+
+  .card-content {
+    padding: 40px 20px !important;
+
+    .card-title {
+      margin-bottom: 30px !important;
+      font-size: 24px;
+      line-height: 1em !important;
+    }
+
+    .card-list {
+      margin: 30px 0 0;
+
+      li {
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .card-action {
+    padding: 20px 0;
+
+    .card-price {
+      font-size: 18px;
+      line-height: 1em;
+    }
+
+    .card-atc-btn {
+      margin-top: 10px;
+    }
+  }
+
+  .mcb-table {
+    border: 1px solid #eeeeee;
+
+    th {
+      padding: 15px 0;
+    }
+
+    td {
+      padding: 20px 0;
+    }
+  }
+
+  .mcb-card-form {
+    padding: 10px 30px 40px;
+
+    h5 {
+      margin-bottom: 20px;
+    }
+
+    .mcb-form-cta-btn {
+      margin-top: 15px;
+    }
+  }
+}
+
+.mcb-footer {
+  padding: 70px 0 !important;
+  margin-top: 80px;
+
+  h5 {
+    margin: 25px 0 15px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.7em;
+    margin-bottom: 40px;
+  }
+}
