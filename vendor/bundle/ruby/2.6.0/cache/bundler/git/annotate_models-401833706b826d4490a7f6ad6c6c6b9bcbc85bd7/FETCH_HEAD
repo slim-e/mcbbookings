@@ -1,0 +1,35 @@
+5e90612a8b5818fa0f214313e63616e2993518f4		branch 'dependabot/bundler/rubocop-tw-0.90.0' of https://github.com/ctran/annotate_models
+807833a90960cdb4f1f98031dac240f03c94b1c7		branch 'dependabot/bundler/spec/integration/rails_5.2.4.1/puma-4.3.5' of https://github.com/ctran/annotate_models
+d696903c706f5997283f6e1640e04d36b8457a29		branch 'dependabot/bundler/spec/integration/rails_5.2.4.1/rack-2.2.3' of https://github.com/ctran/annotate_models
+1d7ff5caf350323cde381fe182c523566bbb4269		branch 'dependabot/bundler/spec/integration/rails_5.2.4.1/websocket-extensions-0.1.5' of https://github.com/ctran/annotate_models
+d6318a0965b74571d83e2c0e69d1283cfdd05ab1		branch 'dependabot/bundler/spec/integration/rails_6.0.2.1/puma-4.3.5' of https://github.com/ctran/annotate_models
+f97355ca062799e49c90060cb125fff3655c61f6		branch 'dependabot/bundler/spec/integration/rails_6.0.2.1/rack-2.2.3' of https://github.com/ctran/annotate_models
+eb84a6640a8584c1a330137683d640fa4d610c50		branch 'dependabot/bundler/spec/integration/rails_6.0.2.1/websocket-extensions-0.1.5' of https://github.com/ctran/annotate_models
+7d211ddebb95154a30f1b056782dca9ee8e919bc		branch 'develop' of https://github.com/ctran/annotate_models
+9a0ea388c074ddc37884e7ee45f8917f12e0997b		branch 'drwl/make-specs-randomized' of https://github.com/ctran/annotate_models
+27e5965260cfd60d51054bb82aeef3b47ea22c46		branch 'ghtest' of https://github.com/ctran/annotate_models
+111640d077836ced23cfffb882c93e40968ab9d9		branch 'master' of https://github.com/ctran/annotate_models
+5074e32d53eb9092eb5b93ca34025932e4efc7f6	not-for-merge	tag 'release/v3.0.1' of https://github.com/ctran/annotate_models
+98d00635c41c4bfe66b361196241505a5c778b7a	not-for-merge	tag 'v2.5.0' of https://github.com/ctran/annotate_models
+da8100a55bd32bd62e92c2def31ad31f8e0d6b18	not-for-merge	tag 'v2.6.0' of https://github.com/ctran/annotate_models
+b8f22e9888eeb21c8a8efa600c57b9cc778b4153	not-for-merge	tag 'v2.6.10' of https://github.com/ctran/annotate_models
+aeec90b1dba7a489edabd2c513f46f7b0a2ea411	not-for-merge	tag 'v2.6.2' of https://github.com/ctran/annotate_models
+acd1c78c1668a8cc52076338e69d5fabefd9d1c9	not-for-merge	tag 'v2.6.3' of https://github.com/ctran/annotate_models
+b5bf438e5079d032c528b7607899cead00da5d96	not-for-merge	tag 'v2.6.4' of https://github.com/ctran/annotate_models
+06607bea8146d95dbb6c67049e1fd3255dd8eab8	not-for-merge	tag 'v2.6.5' of https://github.com/ctran/annotate_models
+d69c51962a1097934a6b3a47a36acf88398fb49f	not-for-merge	tag 'v2.6.6' of https://github.com/ctran/annotate_models
+a1f3f23f0053a1c3c1edb45887f7edd96065f5f5	not-for-merge	tag 'v2.6.7' of https://github.com/ctran/annotate_models
+35e85f6ea62a3d0916a6662b620d6636d282f0b9	not-for-merge	tag 'v2.6.8' of https://github.com/ctran/annotate_models
+7201329d8f7834dbbde3e7af10205cacde8b26b9	not-for-merge	tag 'v2.6.9' of https://github.com/ctran/annotate_models
+a1cc2a0f4d3ba948af921d01f2e15f530ba33122	not-for-merge	tag 'v2.7.0' of https://github.com/ctran/annotate_models
+3b41216afb585ad50b44aaeef865be2dcbdb2c69	not-for-merge	tag 'v2.7.1' of https://github.com/ctran/annotate_models
+3531a2e66dcfac12f152a23a8d4a0a813dafbde9	not-for-merge	tag 'v2.7.2' of https://github.com/ctran/annotate_models
+fe0e2823c84659c2ff871fdba0882642b3759d04	not-for-merge	tag 'v2.7.3' of https://github.com/ctran/annotate_models
+852e1e9b14fb316536ec52badda54ff50c251729	not-for-merge	tag 'v2.7.4' of https://github.com/ctran/annotate_models
+c14774a61ef416f29c6d426306c0f6d346e2a46e	not-for-merge	tag 'v2.7.5' of https://github.com/ctran/annotate_models
+f4294a2740449ddf4dbb1eddc00922f8b4ab94a2	not-for-merge	tag 'v3.0.0' of https://github.com/ctran/annotate_models
+767744f27bf3d8575e07126077b4e1c1bf4efea0	not-for-merge	tag 'v3.0.2' of https://github.com/ctran/annotate_models
+1bc6238aa6adc8962fd30ed98ee0a2b1f9752dd4	not-for-merge	tag 'v3.0.3' of https://github.com/ctran/annotate_models
+69d7ee28b6ada9b2fcb73d9ed931c950fbceedc5	not-for-merge	tag 'v3.1.0' of https://github.com/ctran/annotate_models
+3b811035a77721cc7c3f489caa0599a1ece83592	not-for-merge	tag 'v3.1.1' of https://github.com/ctran/annotate_models
+16969f2e7a7677dac1822556d97cdd864846cf5a	not-for-merge	tag 'v3.1.1-release' of https://github.com/ctran/annotate_models

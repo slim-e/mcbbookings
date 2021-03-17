@@ -1,0 +1,50 @@
+# pack-refs with: peeled fully-peeled sorted 
+5e90612a8b5818fa0f214313e63616e2993518f4 refs/heads/dependabot/bundler/rubocop-tw-0.90.0
+807833a90960cdb4f1f98031dac240f03c94b1c7 refs/heads/dependabot/bundler/spec/integration/rails_5.2.4.1/puma-4.3.5
+d696903c706f5997283f6e1640e04d36b8457a29 refs/heads/dependabot/bundler/spec/integration/rails_5.2.4.1/rack-2.2.3
+1d7ff5caf350323cde381fe182c523566bbb4269 refs/heads/dependabot/bundler/spec/integration/rails_5.2.4.1/websocket-extensions-0.1.5
+d6318a0965b74571d83e2c0e69d1283cfdd05ab1 refs/heads/dependabot/bundler/spec/integration/rails_6.0.2.1/puma-4.3.5
+f97355ca062799e49c90060cb125fff3655c61f6 refs/heads/dependabot/bundler/spec/integration/rails_6.0.2.1/rack-2.2.3
+eb84a6640a8584c1a330137683d640fa4d610c50 refs/heads/dependabot/bundler/spec/integration/rails_6.0.2.1/websocket-extensions-0.1.5
+7d211ddebb95154a30f1b056782dca9ee8e919bc refs/heads/develop
+9a0ea388c074ddc37884e7ee45f8917f12e0997b refs/heads/drwl/make-specs-randomized
+27e5965260cfd60d51054bb82aeef3b47ea22c46 refs/heads/ghtest
+111640d077836ced23cfffb882c93e40968ab9d9 refs/heads/master
+5074e32d53eb9092eb5b93ca34025932e4efc7f6 refs/tags/release/v3.0.1
+98d00635c41c4bfe66b361196241505a5c778b7a refs/tags/v2.5.0
+da8100a55bd32bd62e92c2def31ad31f8e0d6b18 refs/tags/v2.6.0
+b8f22e9888eeb21c8a8efa600c57b9cc778b4153 refs/tags/v2.6.10
+^0146ee7b9a70d530a30a5e220c94d5e353624671
+aeec90b1dba7a489edabd2c513f46f7b0a2ea411 refs/tags/v2.6.2
+^ed327d5a15226d0b5f78ab1d47649c0fdab66c8f
+acd1c78c1668a8cc52076338e69d5fabefd9d1c9 refs/tags/v2.6.3
+b5bf438e5079d032c528b7607899cead00da5d96 refs/tags/v2.6.4
+06607bea8146d95dbb6c67049e1fd3255dd8eab8 refs/tags/v2.6.5
+^9634ea6e67851d4a9a4d0b89597a6a9d3fc4d1f4
+d69c51962a1097934a6b3a47a36acf88398fb49f refs/tags/v2.6.6
+^723176acd26e75bbfab6bab7548563cb60041d28
+a1f3f23f0053a1c3c1edb45887f7edd96065f5f5 refs/tags/v2.6.7
+^d5d55e8bcb4459c66c7ae50c911ab1189ab585d5
+35e85f6ea62a3d0916a6662b620d6636d282f0b9 refs/tags/v2.6.8
+^52ffefcbe4e89cb172e2007eda0f74ac40798727
+7201329d8f7834dbbde3e7af10205cacde8b26b9 refs/tags/v2.6.9
+a1cc2a0f4d3ba948af921d01f2e15f530ba33122 refs/tags/v2.7.0
+3b41216afb585ad50b44aaeef865be2dcbdb2c69 refs/tags/v2.7.1
+3531a2e66dcfac12f152a23a8d4a0a813dafbde9 refs/tags/v2.7.2
+^5f37a974f3dff68f92b3495115f1399e7db5c584
+fe0e2823c84659c2ff871fdba0882642b3759d04 refs/tags/v2.7.3
+^89bce57f2888babd9a620ae7772b5df02ee97516
+852e1e9b14fb316536ec52badda54ff50c251729 refs/tags/v2.7.4
+^75878a245c3cbc15fbfc515b492e86bfb08036bd
+c14774a61ef416f29c6d426306c0f6d346e2a46e refs/tags/v2.7.5
+^0ef095dc993211ee28af201a2cb4f19267cee047
+f4294a2740449ddf4dbb1eddc00922f8b4ab94a2 refs/tags/v3.0.0
+^b4c19810732ccf903006a4716e23b44a6742a6ca
+767744f27bf3d8575e07126077b4e1c1bf4efea0 refs/tags/v3.0.2
+1bc6238aa6adc8962fd30ed98ee0a2b1f9752dd4 refs/tags/v3.0.3
+^2949cd435ca9399ee54c13a748b19d13dbce3e1e
+69d7ee28b6ada9b2fcb73d9ed931c950fbceedc5 refs/tags/v3.1.0
+3b811035a77721cc7c3f489caa0599a1ece83592 refs/tags/v3.1.1
+^9d58694506129b959cd8febe0516e08b48d5836c
+16969f2e7a7677dac1822556d97cdd864846cf5a refs/tags/v3.1.1-release
+^c9e85d3ca25f2252a4613cae6176e2f156809c43
