@@ -98,6 +98,21 @@ body {
       margin-bottom: 20px;
     }
 
+    .field_with_errors {
+      background-color: #ffcdd2 !important;
+    }
+
+    .mcb-errors {
+      padding: 10px;
+      background-color: #ffcdd2;
+
+      ul {
+        margin: 0;
+        color: #d32f2f;
+        line-height: 1.6em;
+      }
+    }
+
     .mcb-form-cta-btn {
       margin-top: 15px;
     }
