@@ -7,29 +7,30 @@
         <form>
           <div class="row no-maghin-bottom">
             <div class="input-field col s12 m6">
-              <%= f.text_field :name, required: true, autofocus: true %>
-              <label for="first_name">Prénom</label>
+              <%= f.text_field :first_name, required: true, autofocus: true, placeholder: 'Prénom' %>
             </div>
             <div class="input-field col s12 m6">
-              <%= f.text_field :name, required: true, autofocus: true %>
-              <label for="last_name">Nom de Famille</label>
+              <%= f.text_field :family_name, required: true, autofocus: true, placeholder: 'Nom de famille' %>
             </div>
           </div>
           <div class="row no-maghin-bottom">
             <div class="input-field col s12">
-              <%= f.email_field :email %>
-              <label for="email">Email</label>
+              <%= f.email_field :email, required: true, autofocus: true, placeholder: 'Email' %>
             </div>
           </div>
           <div class="row no-maghin-bottom">
             <div class="input-field col s12">
-              <%= f.text_area :address, class: 'materialize-textarea' %>
-              <label for="textarea1">Adresse</label>
+              <%= f.text_area :address, class: 'materialize-textarea', required: true, autofocus: true, placeholder: 'Adresse' %>
+            </div>
+          </div>
+          <div class="row no-maghin-bottom">
+            <div class="input-field col s6">
+              <%= f.date_field :start_at, class: 'datepicker', required: true %>
             </div>
           </div>
           <div class="row no-maghin-bottom">
             <div class="col s12 m6 offset-m3">
-              <%= f.submit "Passer au paiement", class: 'mcb-form-cta-btn btn btn-small yellow black-text waves-effect waves-light' %>
+              <%= f.submit "Passer au paiement", class: 'mcb-form-cta-btn btn btn-large yellow black-text waves-effect waves-light' %>
             </div>
           </div>
         </form>
@@ -60,3 +61,10 @@
     </ul>
   </div>
 </div>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+</script>

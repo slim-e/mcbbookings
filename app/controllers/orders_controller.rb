@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
 
-    redirect_to root_path
+    redirect_to new_order_charge_path(order_id: @order.id)
   end
 
   private

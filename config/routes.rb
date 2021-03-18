@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   delete 'line_items/:id' => 'line_items#destroy'
 
   resources :products
-  resources :orders
+  resources :orders do
+    resources :charges
+  end
   resources :room_payments
   resources :bookings
   resources :users

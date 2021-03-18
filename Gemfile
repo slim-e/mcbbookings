@@ -30,6 +30,8 @@ gem 'simple_form'
 
 gem 'materialize-sass', '~> 1.0.0'
 
+gem 'stripe'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
