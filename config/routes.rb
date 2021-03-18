@@ -1,6 +1,3 @@
-# == Route Map
-#
-
 Rails.application.routes.draw do
   root 'products#index'
 
@@ -13,14 +10,8 @@ Rails.application.routes.draw do
   get 'line_items/:id' => 'line_items#show', as: 'line_item'
   delete 'line_items/:id' => 'line_items#destroy'
 
-  resources :products
-  resources :orders do
+  resources :products, only: :index
+  resources :orders, only: %i[new create] do
     resources :charges
   end
-  resources :room_payments
-  resources :bookings
-  resources :users
-  resources :admins
-  resources :clients
-  resources :rooms
 end
