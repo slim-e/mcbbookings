@@ -11752,3 +11752,27 @@ I, [2021-03-18T16:58:03.023652 #16550]  INFO -- :   Rendered layout layouts/appl
 I, [2021-03-18T16:58:03.026019 #16550]  INFO -- : Completed 200 OK in 205ms (Views: 34.3ms | ActiveRecord: 137.8ms | Allocations: 25502)
 
 
+W, [2021-03-18T17:01:09.829942 #18255]  WARN -- : DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+In order to autoload safely at boot time, please wrap your code in a reloader
+callback this way:
+
+    Rails.application.reloader.to_prepare do
+      # Autoload classes and modules needed at boot time here.
+    end
+
+That block runs when the application boots, and every time there is a reload.
+For historical reasons, it may run twice, so it has to be idempotent.
+
+Check the "Autoloading and Reloading Constants" guide to learn more about how
+Rails autoloads and reloads.
+ (called from <main> at /Users/nomadslim/projects/mmacampbrazil/mcbbookings/config/environment.rb:5)

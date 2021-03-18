@@ -9,6 +9,6 @@ class Order < ApplicationRecord
       total += item.total_price
     end
 
-    return total
+    total
   end
 end
