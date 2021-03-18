@@ -3,6 +3,16 @@
     <div class="card white mcb-card-form">
       <h5>Informations de facturation</h5>
 
+      <% if flash[:errors].present? %>
+        <div class="mcb-errors">
+          <ul>
+            <% flash[:errors].each do |msg| %>
+              <li>* <%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <%= form_for(@order) do |f| %>
         <form>
           <div class="row no-maghin-bottom">
