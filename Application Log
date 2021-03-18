@@ -16167,3 +16167,172 @@ I, [2021-03-18T18:06:48.517144 #19794]  INFO -- :   Rendered layout layouts/appl
 I, [2021-03-18T18:06:48.517386 #19794]  INFO -- : Completed 200 OK in 43ms (Views: 28.9ms | ActiveRecord: 6.3ms | Allocations: 11978)
 
 
+I, [2021-03-18T18:16:26.997586 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:16:26 +0800
+I, [2021-03-18T18:16:27.212790 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:16:27.471980 #19794] DEBUG -- :   [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:16:27.474018 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:16:27.482257 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:16:27.482437 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:16:27.484934 #19794] DEBUG -- :   [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:16:27.485877 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:16:27.514012 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 31.4ms | Allocations: 7077)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:16:27.551141 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 13645)
+I, [2021-03-18T18:16:27.551541 #19794]  INFO -- : Completed 200 OK in 339ms (Views: 52.8ms | ActiveRecord: 82.5ms | Allocations: 24900)
+
+
+I, [2021-03-18T18:16:38.252358 #19794]  INFO -- : Started GET "/carts/17" for ::1 at 2021-03-18 18:16:38 +0800
+I, [2021-03-18T18:16:38.257422 #19794]  INFO -- : Processing by CartsController#show as HTML
+I, [2021-03-18T18:16:38.257503 #19794]  INFO -- :   Parameters: {"id"=>"17"}
+D, [2021-03-18T18:16:38.266993 #19794] DEBUG -- :   [1m[36mCart Load (1.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:16:38.267804 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:16:38.272693 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:16:38.272870 #19794] DEBUG -- :   Rendering carts/show.html.erb within layouts/application
+D, [2021-03-18T18:16:38.380154 #19794] DEBUG -- :   [1m[36mLineItem Load (2.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 17]]
+D, [2021-03-18T18:16:38.380823 #19794] DEBUG -- :   ↳ app/views/carts/show.html.erb:14:in `sort_by'
+I, [2021-03-18T18:16:38.382378 #19794]  INFO -- :   Rendered carts/show.html.erb within layouts/application (Duration: 109.3ms | Allocations: 3614)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:16:38.401319 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 128.5ms | Allocations: 10105)
+I, [2021-03-18T18:16:38.401643 #19794]  INFO -- : Completed 200 OK in 144ms (Views: 130.4ms | ActiveRecord: 3.7ms | Allocations: 12376)
+
+
+I, [2021-03-18T18:16:54.287809 #19794]  INFO -- : Started GET "/orders/new" for ::1 at 2021-03-18 18:16:54 +0800
+I, [2021-03-18T18:16:54.293696 #19794]  INFO -- : Processing by OrdersController#new as HTML
+D, [2021-03-18T18:16:54.301726 #19794] DEBUG -- :   [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:16:54.302344 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:16:54.336038 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:16:54.336140 #19794] DEBUG -- :   Rendering orders/new.html.erb within layouts/application
+D, [2021-03-18T18:16:54.366627 #19794] DEBUG -- :   [1m[36mLineItem Load (25.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 17]]
+D, [2021-03-18T18:16:54.367304 #19794] DEBUG -- :   ↳ app/views/orders/new.html.erb:55:in `sort_by'
+I, [2021-03-18T18:16:54.367974 #19794]  INFO -- :   Rendered orders/new.html.erb within layouts/application (Duration: 31.7ms | Allocations: 2471)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:16:54.383948 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 9051)
+I, [2021-03-18T18:16:54.384438 #19794]  INFO -- : Completed 200 OK in 91ms (Views: 24.4ms | ActiveRecord: 26.8ms | Allocations: 17729)
+
+
+I, [2021-03-18T18:16:56.889800 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:16:56 +0800
+I, [2021-03-18T18:16:56.893307 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:16:56.896404 #19794] DEBUG -- :   [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:16:56.896997 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:16:56.897809 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:16:56.897931 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:16:56.899603 #19794] DEBUG -- :   [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:16:56.900271 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:16:56.902798 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1950)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:16:56.922334 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 8529)
+I, [2021-03-18T18:16:56.923056 #19794]  INFO -- : Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 2.5ms | Allocations: 10269)
+
+
+I, [2021-03-18T18:17:35.498977 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:17:35 +0800
+I, [2021-03-18T18:17:35.502175 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:17:35.547050 #19794] DEBUG -- :   [1m[36mCart Load (0.8ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:17:35.548263 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:17:35.551440 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:17:35.551571 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:17:35.559284 #19794] DEBUG -- :   [1m[36mProduct Load (6.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:17:35.559886 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:17:35.562762 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2199)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:17:35.599707 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 9105)
+I, [2021-03-18T18:17:35.600184 #19794]  INFO -- : Completed 200 OK in 98ms (Views: 44.2ms | ActiveRecord: 7.2ms | Allocations: 11599)
+
+
+I, [2021-03-18T18:17:47.648490 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:17:47 +0800
+I, [2021-03-18T18:17:47.651009 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:17:47.663960 #19794] DEBUG -- :   [1m[36mCart Load (10.9ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:17:47.664753 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:17:47.669001 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:17:47.669151 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:17:47.697928 #19794] DEBUG -- :   [1m[36mProduct Load (27.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:17:47.699223 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:17:47.701004 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 2194)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:17:47.726342 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 57.2ms | Allocations: 9100)
+I, [2021-03-18T18:17:47.726698 #19794]  INFO -- : Completed 200 OK in 76ms (Views: 33.1ms | ActiveRecord: 38.1ms | Allocations: 11592)
+
+
+I, [2021-03-18T18:17:57.172503 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:17:57 +0800
+I, [2021-03-18T18:17:57.174609 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:17:57.177861 #19794] DEBUG -- :   [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:17:57.178797 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:17:57.180899 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:17:57.181004 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:17:57.183009 #19794] DEBUG -- :   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:17:57.183410 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:17:57.184981 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2199)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:17:57.199114 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 9106)
+I, [2021-03-18T18:17:57.199529 #19794]  INFO -- : Completed 200 OK in 25ms (Views: 18.6ms | ActiveRecord: 2.3ms | Allocations: 11601)
+
+
+I, [2021-03-18T18:18:01.854983 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:18:01 +0800
+I, [2021-03-18T18:18:01.856527 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:18:01.858456 #19794] DEBUG -- :   [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:18:01.858765 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:18:01.860847 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:18:01.860951 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:18:01.863199 #19794] DEBUG -- :   [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:18:01.863684 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:18:01.865750 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2194)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:18:01.874629 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 9100)
+I, [2021-03-18T18:18:01.875033 #19794]  INFO -- : Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 2.0ms | Allocations: 11589)
+
+
+I, [2021-03-18T18:18:12.358208 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:18:12 +0800
+I, [2021-03-18T18:18:12.365322 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:18:12.369449 #19794] DEBUG -- :   [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:18:12.369759 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:18:12.372255 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:18:12.372403 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:18:12.376038 #19794] DEBUG -- :   [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:18:12.377246 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:18:12.379905 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2194)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:18:12.404796 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 9100)
+I, [2021-03-18T18:18:12.405383 #19794]  INFO -- : Completed 200 OK in 40ms (Views: 32.3ms | ActiveRecord: 2.8ms | Allocations: 11589)
+
+
+I, [2021-03-18T18:18:38.677936 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:18:38 +0800
+I, [2021-03-18T18:18:38.680662 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:18:38.686547 #19794] DEBUG -- :   [1m[36mCart Load (3.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:18:38.687093 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:18:38.690963 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:18:38.691087 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:18:38.704007 #19794] DEBUG -- :   [1m[36mProduct Load (11.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:18:38.704511 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:18:38.706158 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 2194)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:18:38.718990 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 9103)
+I, [2021-03-18T18:18:38.719348 #19794]  INFO -- : Completed 200 OK in 39ms (Views: 19.2ms | ActiveRecord: 15.4ms | Allocations: 11592)
+
+
+I, [2021-03-18T18:18:44.964676 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:18:44 +0800
+I, [2021-03-18T18:18:44.966948 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:18:44.970625 #19794] DEBUG -- :   [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:18:44.971243 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:18:44.975422 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:18:44.975566 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:18:44.978053 #19794] DEBUG -- :   [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:18:44.978552 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:18:44.980717 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2194)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:18:45.093842 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 118.2ms | Allocations: 9104)
+I, [2021-03-18T18:18:45.094195 #19794]  INFO -- : Completed 200 OK in 127ms (Views: 120.1ms | ActiveRecord: 2.6ms | Allocations: 11595)
+
+
+I, [2021-03-18T18:18:50.661444 #19794]  INFO -- : Started GET "/products" for ::1 at 2021-03-18 18:18:50 +0800
+I, [2021-03-18T18:18:50.665031 #19794]  INFO -- : Processing by ProductsController#index as HTML
+D, [2021-03-18T18:18:50.669339 #19794] DEBUG -- :   [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+D, [2021-03-18T18:18:50.670147 #19794] DEBUG -- :   ↳ app/controllers/application_controller.rb:12:in `current_cart'
+D, [2021-03-18T18:18:50.673074 #19794] DEBUG -- :   Rendering layout layouts/application.html.erb
+D, [2021-03-18T18:18:50.673459 #19794] DEBUG -- :   Rendering products/index.html.erb within layouts/application
+D, [2021-03-18T18:18:50.678464 #19794] DEBUG -- :   [1m[36mProduct Load (4.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+D, [2021-03-18T18:18:50.679106 #19794] DEBUG -- :   ↳ app/views/products/index.html.erb:2
+I, [2021-03-18T18:18:50.682470 #19794]  INFO -- :   Rendered products/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2199)
+[Webpacker] Everything's up-to-date. Nothing to do
+I, [2021-03-18T18:18:50.698343 #19794]  INFO -- :   Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 9108)
+I, [2021-03-18T18:18:50.698760 #19794]  INFO -- : Completed 200 OK in 34ms (Views: 23.3ms | ActiveRecord: 5.4ms | Allocations: 11602)
+
+
