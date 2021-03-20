@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'country_select'
 gem 'simple_form'
 
+gem "simple_calendar", "~> 2.4"
+
 gem 'materialize-sass', '~> 1.0.0'
 
 gem 'stripe'
