@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :products, only: :index
   resources :orders, only: %i[new create] do
-    resources :charges
   end
 
   scope '/checkout' do
