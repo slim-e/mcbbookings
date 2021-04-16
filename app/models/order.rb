@@ -35,11 +35,23 @@ class Order < ApplicationRecord
   validates :address, presence: true, length: {minimum: 3, maximum: 300,
                                                too_short: "Minimum %{count} caractères.",
                                                too_long: "Seulement %{count} caractères autorisés."}
+  validates :city, presence: true, length: {minimum: 3, maximum: 100,
+                                            too_short: "Minimum %{count} caractères.",
+                                            too_long: "Seulement %{count} caractères autorisés."}
+  validates :country, presence: true, length: {minimum: 3, maximum: 100,
+                                               too_short: "Minimum %{count} caractères.",
+                                               too_long: "Seulement %{count} caractères autorisés."}
+  validates :zip_code, presence: true, length: {minimum: 3, maximum: 8,
+                                                too_short: "Minimum %{count} caractères.",
+                                                too_long: "Seulement %{count} caractères autorisés."}
   validates :start_at, presence: true
   validate :start_at_cannot_be_in_the_past
   validates :pay_method, length: {maximum: 100,
                                   too_long: "Seulement %{count} caractères autorisés."}
   validates :paid, inclusion: [true, false]
+  validates :stripe_payment_intent_id, length: {maximum: 100}
+  validates :stripe_checkout_session_id, length: {maximum: 100}
+  validates :stripe_customer_id, length: {maximum: 100}
 
   def total_amount
     total = 0
