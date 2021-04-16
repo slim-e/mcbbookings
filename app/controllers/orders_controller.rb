@@ -1,5 +1,6 @@
-class OrdersController < ApplicationController
+# frozen_string_literal: true
 
+class OrdersController < ApplicationController
   def new
     flash.now[:current_cart] = @current_cart
 

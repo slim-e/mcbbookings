@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,99 +12,118 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_318_021_632) do
+ActiveRecord::Schema.define(version: 20_210_321_055_038) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'admins', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.integer 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_admins_on_user_id'
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
-  create_table 'bookings', force: :cascade do |t|
-    t.string 'status'
-    t.integer 'cost'
-    t.datetime 'start'
-    t.integer 'room_id'
-    t.integer 'client_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['client_id'], name: 'index_bookings_on_client_id'
-    t.index ['room_id'], name: 'index_bookings_on_room_id'
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.integer "cost"
+    t.datetime "start"
+    t.integer "room_id"
+    t.integer "client_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
-  create_table 'carts', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'clients', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.string 'phone'
-    t.integer 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['user_id'], name: 'index_clients_on_user_id'
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
-  create_table 'line_items', force: :cascade do |t|
-    t.integer 'quantity', default: 1
-    t.integer 'product_id'
-    t.integer 'cart_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'order_id'
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity", default: 1
+    t.integer "product_id"
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id"
   end
 
-  create_table 'orders', force: :cascade do |t|
-    t.string 'first_name', default: ''
-    t.string 'email'
-    t.text 'address'
-    t.string 'pay_method'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'family_name', default: '', null: false
-    t.datetime 'start_at'
-    t.boolean 'paid', default: false
+  create_table "orders", force: :cascade do |t|
+    t.string "first_name", default: ""
+    t.string "email"
+    t.text "address"
+    t.string "pay_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "family_name", default: "", null: false
+    t.datetime "start_at"
+    t.boolean "paid", default: false
+    t.string "country", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "zip_code", default: "", null: false
+    t.string "stripe_payment_intent_id"
+    t.string "stripe_customer_id"
+    t.string "stripe_checkout_session_id"
   end
 
-  create_table 'products', force: :cascade do |t|
-    t.string 'name'
-    t.decimal 'price', default: '0.0'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'duration_in_days'
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "duration_in_days"
   end
 
-  create_table 'room_payments', force: :cascade do |t|
-    t.string 'payment_number'
-    t.string 'status'
-    t.date 'paid_at'
-    t.integer 'cost'
-    t.string 'service'
-    t.integer 'booking_id'
-    t.integer 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['booking_id'], name: 'index_room_payments_on_booking_id'
-    t.index ['user_id'], name: 'index_room_payments_on_user_id'
+  create_table "room_payments", force: :cascade do |t|
+    t.string "payment_number"
+    t.string "status"
+    t.date "paid_at"
+    t.integer "cost"
+    t.string "service"
+    t.integer "booking_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_room_payments_on_booking_id"
+    t.index ["user_id"], name: "index_room_payments_on_user_id"
   end
 
-  create_table 'rooms', force: :cascade do |t|
-    t.integer 'number'
-    t.boolean 'booked'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "rooms", force: :cascade do |t|
+    t.integer "number"
+    t.boolean "booked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "webhook_events", force: :cascade do |t|
+    t.string "source"
+    t.string "external_id"
+    t.json "data"
+    t.integer "state", default: 0
+    t.text "processing_errors"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["external_id"], name: "index_webhook_events_on_external_id"
+    t.index %w[source external_id], name: "index_webhook_events_on_source_and_external_id"
+    t.index ["source"], name: "index_webhook_events_on_source"
   end
 end

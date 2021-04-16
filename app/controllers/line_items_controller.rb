@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LineItemsController < ApplicationController
   def create
     # Find associated product and current cart

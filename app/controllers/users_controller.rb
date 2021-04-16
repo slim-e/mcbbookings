@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   # before_action :set_room, only: [:new]
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
         # UserMailer.new_signup_booking_admin(@user, @booking).deliver_later
         # UserMailer.new_signup_booking_client(@user, @booking).deliver_later
 
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,7 +66,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -100,7 +102,7 @@ class UsersController < ApplicationController
     @booking.client_id = @client.id
     @booking.title = @room.title
     @booking.cost = @room.cost
-    @booking.status = 'Booked'
+    @booking.status = "Booked"
     @booking.save
     # @schedule = Schedule.find(params[:user][:booking][:schedule_id])
     @booking.start = @schedule.start
@@ -113,7 +115,7 @@ class UsersController < ApplicationController
 
   def create_client_lesson_payment
     @room_payment = RoomPayment.new
-    @room_payment.status = 'Paid'
+    @room_payment.status = "Paid"
     @room_payment.date = Date.today
     @room_payment.cost = @room.cost
     # @room_payment.service = @room.title

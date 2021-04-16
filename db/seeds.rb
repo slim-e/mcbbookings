@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -8,9 +10,9 @@
 
 # PRODUCT
 Product.destroy_all
-product1 = Product.create({ name: 'STAGE 1 SEMAINE', price: 350, duration_in_days: 7 })
-product2 = Product.create({ name: 'STAGE 1 MOIS', price: 900, duration_in_days: 31 })
-product3 = Product.create({ name: 'STAGE 3 MOIS', price: 2200, duration_in_days: 92 })
+product1 = Product.create({name: "STAGE 1 SEMAINE", price: 350, duration_in_days: 7})
+product2 = Product.create({name: "STAGE 1 MOIS", price: 900, duration_in_days: 31})
+product3 = Product.create({name: "STAGE 3 MOIS", price: 2200, duration_in_days: 92})
 
 puts "Total number of products: #{Product.all.count}"
 puts "Product names: #{Product.all.pluck('name')}"
@@ -24,14 +26,14 @@ puts "\nTotal cart count: #{Cart.all.count}"
 
 # ROOM
 Room.destroy_all
-room1 = Room.create({ number: 1, booked: false })
-room2 = Room.create({ number: 1, booked: false })
-room3 = Room.create({ number: 1, booked: false })
-room4 = Room.create({ number: 1, booked: false })
-room5 = Room.create({ number: 1, booked: false })
-room6 = Room.create({ number: 1, booked: false })
-room7 = Room.create({ number: 1, booked: false })
-room8 = Room.create({ number: 1, booked: false })
+room1 = Room.create({number: 1, booked: false})
+room2 = Room.create({number: 1, booked: false})
+room3 = Room.create({number: 1, booked: false})
+room4 = Room.create({number: 1, booked: false})
+room5 = Room.create({number: 1, booked: false})
+room6 = Room.create({number: 1, booked: false})
+room7 = Room.create({number: 1, booked: false})
+room8 = Room.create({number: 1, booked: false})
 
 puts "Total number of rooms: #{Product.all.count}"
 puts "Room 1: #{room1.number} booked: #{room1.booked}"

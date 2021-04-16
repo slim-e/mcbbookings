@@ -1,3 +1,15 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: rooms
+#
+#  id         :bigint           not null, primary key
+#  number     :integer
+#  booked     :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Room < ApplicationRecord
   has_many :clients, through: :bookings
 
