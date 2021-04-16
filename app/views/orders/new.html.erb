@@ -34,7 +34,18 @@
             </div>
           </div>
           <div class="row no-maghin-bottom">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
+              <%= f.text_field :city, required: true, autofocus: true, placeholder: 'Ville' %>
+            </div>
+            <div class="input-field col s12 m6">
+              <%= f.text_field :zip_code, required: true, autofocus: true, placeholder: 'Code postal' %>
+            </div>
+          </div>
+          <div class="row no-maghin-bottom">
+            <div class="input-field col s12 m6">
+              <%= f.text_field :country, required: true, autofocus: true, placeholder: 'Pays' %>
+            </div>
+            <div class="input-field col s12 m6">
               <%= f.date_field :start_at, class: 'datepicker', required: true %>
             </div>
           </div>
@@ -55,7 +66,7 @@
       <% @current_cart.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
         <li class="collection-item">
           <div><%= line_item.product.name %>&nbsp;x&nbsp;<%= line_item.quantity %>
-            <span class="secondary-content"><%= number_to_currency(line_item.total_price) %></span>
+            <span class="secondary-content black-text"><%= number_to_currency(line_item.total_price, separator: ",", delimiter: "", precision: 2, format: "%n €") %></span>
           </div>
         </li>
       <% end %>
@@ -64,9 +75,9 @@
     <ul class="collection with-header">
       <li class="collection-header"><h5>Le Total</h5></li>
       <li class="collection-item">
-        <div>Montant total à payer
-          <span class="secondary-content"><%= number_to_currency(@current_cart.sub_total) %></span>
-        </div>
+        <h6>Montant à payer
+          <span class="secondary-content black-text"><%= number_to_currency(@current_cart.sub_total, separator: ",", delimiter: "", precision: 2, format: "%n €") %></span>
+        </h6>
       </li>
     </ul>
   </div>
