@@ -39,3 +39,4 @@ vendor/bundle/ruby/2.6.0/bundler/gems/annotate_models-111640d07783
 Application Log
 .bundle
 vendor/*
+.ruby-version
