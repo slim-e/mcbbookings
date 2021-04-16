@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
 
-      redirect_to new_order_charge_path(order_id: @order.id)
+      redirect_to order_checkout_new_path(order_id: @order.id)
     else
       flash.now[:errors] = @order.errors.full_messages
 

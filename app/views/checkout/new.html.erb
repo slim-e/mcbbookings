@@ -1,0 +1,69 @@
+<div class="row no-maghin-bottom">
+  <div class="col s12 m7">
+    <div class="card white mcb-card-form">
+      <h5>Informations de Facturation</h5>
+
+      <% if flash[:errors].present? %>
+        <div class="mcb-errors">
+          <ul>
+            <% flash[:errors].each do |msg| %>
+              <li>* <%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col s12">
+          <p>
+            <u>Nom</u> : <%= @order.full_name %><br>
+            <u>Email</u> : <%= @order.email %><br>
+            <u>Adresse</u> :<br>
+            <%= @order.address %><br>
+            <%= @order.city %><br>
+            <%= @order.zip_code %><br>
+            <%= @order.country %>
+            <br><br>
+            <u>Début du stage</u> : <%= @order.start_at.to_date %><br>
+            <u>Fin du stage</u> : <%= @order.end_at.to_date %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row no-maghin-bottom">
+        <div class="col s12 center">
+          <%= button_to "Passer au paiement", checkout_create_path, method: :post, remote: true, params: { order_id: @order.id }, class: 'mcb-form-cta-btn btn btn-large yellow black-text waves-effect waves-light'  %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m5">
+    <ul class="collection with-header">
+      <li class="collection-header"><h5>Mon Panier</h5></li>
+
+      <% @order.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
+        <li class="collection-item">
+          <div><%= line_item.product.name %>&nbsp;x&nbsp;<%= line_item.quantity %>
+            <span class="secondary-content black-text"><%= number_to_currency(line_item.total_price, separator: ",", delimiter: "", precision: 2, format: "%n €") %></span>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="collection-item">
+        <div>
+          <%= link_to "Modifier mon panier", new_order_path, class: 'yellow-text center' %>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="collection with-header">
+      <li class="collection-header"><h5>Le Total</h5></li>
+      <li class="collection-item">
+        <h6>Montant à payer
+          <span class="secondary-content black-text"><%= number_to_currency(@order.total_amount, separator: ",", delimiter: "", precision: 2, format: "%n €") %></span>
+        </h6>
+      </li>
+    </ul>
+  </div>
+</div>
