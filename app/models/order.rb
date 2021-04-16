@@ -53,6 +53,10 @@ class Order < ApplicationRecord
   validates :stripe_checkout_session_id, length: {maximum: 100}
   validates :stripe_customer_id, length: {maximum: 100}
 
+  def full_name
+    "#{self.first_name} #{self.family_name}"
+  end
+
   def total_amount
     total = 0
 
@@ -63,11 +67,36 @@ class Order < ApplicationRecord
     total
   end
 
+  def end_at
+    total_duration_of_stay = 0
+
+    line_items.each do |item|
+      total_duration_of_stay += item.duration_of_stay
+    end
+
+    start_at + total_duration_of_stay.days
+  end
+
+  def stripe_order_name
+    stripe_order_name = ""
+
+    line_items.each do |item|
+      stripe_order_name += "#{item.quantity} x #{item.product.name}\n"
+    end
+
+    stripe_order_name
+  end
+
   protected
 
   def start_at_cannot_be_in_the_past
-    if start_at.present? && start_at < Date.today
-      errors.add(:start_at, "Ne peut pas être dans le passé")
+    errors.add(:start_at, "Ne peut pas être dans le passé") if start_at.present? && start_at < Date.today
     end
+  end
+
+  private
+
+  def first_available_start_date
+    paid_orders = Order.where(paid: true)
   end
 end

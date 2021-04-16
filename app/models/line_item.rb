@@ -22,4 +22,8 @@ class LineItem < ActiveRecord::Base
   def total_price
     quantity * product.price
   end
+
+  def duration_of_stay
+    quantity * product.duration_in_days
+  end
 end
