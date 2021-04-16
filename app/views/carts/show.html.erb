@@ -31,17 +31,13 @@
 </div>
 
 <div class="row no-maghin-bottom">
-  <div class="col s12 m4 offset-m8">
-    <h5 class="right">Sous-Total: <%= number_to_currency(@cart.sub_total) %></h5>
-  </div>
-
-  <div class="col s12 m4 offset-m8">
+  <div class="col s12 m4 offset-m4 center">
+    <h5 class="center">Sous-Total: <%= number_to_currency(@cart.sub_total) %></h5>
     <br>
-    <%= link_to "Passer à l'étape suivante", new_order_path, class: 'waves-effect waves-light btn yellow black-text right' %>
-  </div>
-
-  <div class="col s12 m4 offset-m8">
-    <br>
-    <%= link_to "Vider le panier", cart_path(@current_cart), method: :delete, data: {confirm: "Vous êtes sûr de vouloir tout annuler?"}, class: 'right red-text' %>
+    <%= link_to "Passer à l'étape suivante", new_order_path, class: 'waves-effect waves-light btn btn-large yellow black-text center' %>
+    <br><br>
+    <small><u>
+      <%= link_to "Vider le panier", cart_path(@current_cart), method: :delete, data: {confirm: "Vous êtes sûr de vouloir tout annuler?"}, class: 'center red-text' %>
+    </u></small>
   </div>
 </div>
