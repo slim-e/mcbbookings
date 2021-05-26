@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: mcbbookings_production
-  username: mcbbookings
-  password: <%= ENV['MCBBOOKINGS_DATABASE_PASSWORD'] %>
