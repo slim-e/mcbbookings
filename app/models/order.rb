@@ -91,6 +91,16 @@ class Order < ApplicationRecord
 
   def start_at_cannot_be_in_the_past
     errors.add(:start_at, "Ne peut pas être dans le passé") if start_at.present? && start_at < Date.today
+  end
+
+  def booking_time_frame
+    # If there is a room that is booked when current_start_at until current_end_at
+    # il y a 8 orders where start_at ou bien end_at is after between current_start_at until current_end_at
+    # sinon, on a une chambre dispo
+
+    if start_at.present? && start_at < first_available_start_date
+      errors.add(:start_at,
+                 "La date de début de séjour doit être après le #{first_available_start_date}")
     end
   end
 
