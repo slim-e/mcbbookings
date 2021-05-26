@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby "2.6.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.3"
@@ -24,10 +24,13 @@ gem "jbuilder", "~> 2.7"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem "activeadmin"
 gem "country_select"
 gem "materialize-sass", "~> 1.0.0"
+# gem "money-rails", "~>1.12"
 gem "sidekiq"
 gem "simple_calendar", "~> 2.4"
+gem "simple_form"
 gem "stripe"
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -49,7 +52,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
 
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "brakeman", require: false
+  gem "bundler-audit"
+  gem "fasterer"
+  gem "overcommit"
+  gem "rails_best_practices"
+  gem "reek"
   gem "rubocop", require: false
+  gem "rubycritic", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
