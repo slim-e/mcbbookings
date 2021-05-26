@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_321_055_038) do
+ActiveRecord::Schema.define(version: 2021_05_26_061041) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,8 +37,8 @@ ActiveRecord::Schema.define(version: 20_210_321_055_038) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clients", force: :cascade do |t|
@@ -53,38 +52,38 @@ ActiveRecord::Schema.define(version: 20_210_321_055_038) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "quantity", default: 1
+    t.integer "quantity"
     t.integer "product_id"
     t.integer "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "order_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "first_name", default: ""
     t.string "email"
     t.text "address"
-    t.string "pay_method"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "family_name", default: "", null: false
     t.datetime "start_at"
     t.boolean "paid", default: false
-    t.string "country", default: "", null: false
-    t.string "city", default: "", null: false
-    t.string "zip_code", default: "", null: false
+    t.string "city"
+    t.string "country"
+    t.string "zip_code"
+    t.string "pay_method"
     t.string "stripe_payment_intent_id"
-    t.string "stripe_customer_id"
     t.string "stripe_checkout_session_id"
+    t.string "stripe_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", default: "0.0"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal "price"
     t.integer "duration_in_days"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "room_payments", force: :cascade do |t|
@@ -114,16 +113,4 @@ ActiveRecord::Schema.define(version: 20_210_321_055_038) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "webhook_events", force: :cascade do |t|
-    t.string "source"
-    t.string "external_id"
-    t.json "data"
-    t.integer "state", default: 0
-    t.text "processing_errors"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["external_id"], name: "index_webhook_events_on_external_id"
-    t.index %w[source external_id], name: "index_webhook_events_on_source_and_external_id"
-    t.index ["source"], name: "index_webhook_events_on_source"
-  end
 end
