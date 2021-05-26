@@ -82,3 +82,5 @@ test:
 production:
   <<: *default
   database: mcbbookings_production
+  username: ENV['DB_USERNAME']
+  password: ENV['DB_PASSWORD']
