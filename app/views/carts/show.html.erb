@@ -14,7 +14,7 @@
         <% @cart.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
           <tr>
             <td><%= line_item.product.name %></td>
-            <td><%= number_to_currency(line_item.product.price) %></td>
+            <td><%= number_to_currency(line_item.product.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
             <td>
               <%= link_to "(-)", line_item_reduce_path(:id => line_item), method: :post %>
               &nbsp;<%= line_item.quantity %>&nbsp;
@@ -22,7 +22,7 @@
               <br><br>
               <small><u><%= link_to "Retirer du panier", line_item_path(line_item), method: :delete, class: 'red-text' %></u></small>
             </td>
-            <td><%= number_to_currency(line_item.total_price) %></td>
+            <td><%= number_to_currency(line_item.total_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
           </tr>
         <% end %>
       </tbody>
@@ -32,14 +32,14 @@
 
 <div class="row no-margin-bottom">
   <div class="col s12 m4 offset-m4 center">
-    <h5 class="center">Sous-Total: <%= number_to_currency(@cart.sub_total) %></h5>
+    <h5 class="center">Sous-Total: <%= number_to_currency(@cart.sub_total, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></h5>
     <br>
     <%= link_to "passer commande (3/4)", new_order_path, class: 'waves-effect waves-light btn yellow black-text center' %>
     <br><br>
     <small>
       <%= link_to "Retour aux produits (1/4)", root_path, class: 'center black-text' %>
       <br>
-      <%= link_to "Vider le panier", cart_path(@current_cart), method: :delete, data: {confirm: "Vous êtes sûr de vouloir tout annuler?"}, class: 'center red-text' %>
+      <%= link_to "Vider le panier", cart_path(@current_cart, unit: "€", separator: ",", delimiter: "", format: "%n %u"), method: :delete, data: {confirm: "Vous êtes sûr de vouloir tout annuler?"}, class: 'center red-text' %>
     </small>
   </div>
 </div>
