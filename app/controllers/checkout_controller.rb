@@ -21,7 +21,7 @@ class CheckoutController < ApplicationController
         currency: "eur",
         quantity: 1
       }],
-      success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
+      success_url: checkout_success_url,
       cancel_url: checkout_cancel_url
     )
 
@@ -30,25 +30,7 @@ class CheckoutController < ApplicationController
     end
   end
 
-  def success
-    return root_path unless params[:session_id].present?
-
-    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
-    @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-    @customer = Stripe::Customer.retrieve(@session.customer)
-
-    order_id = @session.display_items.first.custom.name.split('Commande : ').last.to_i
-    order = Order.find_by(id: order_id)
-
-    order.update!(
-      email: @customer.email,
-      stripe_customer_id: @customer.id,
-      stripe_payment_intent_id: @payment_intent.id,
-      stripe_checkout_session_id: @session.id,
-      paid: true,
-      pay_method: 'card'
-    )
-  end
+  def success; end
 
   def cancel; end
 end
