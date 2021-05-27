@@ -1,4 +1,4 @@
-<div class="row no-maghin-bottom">
+<div class="row no-margin-bottom">
   <div class="col s12 m7">
     <div class="card white mcb-card-form">
       <h5>Informations de Facturation</h5>
@@ -30,9 +30,9 @@
         </div>
       </div>
 
-      <div class="row no-maghin-bottom">
+      <div class="row no-margin-bottom">
         <div class="col s12 center">
-          <%= button_to "Passer au paiement", checkout_create_path, method: :post, remote: true, params: { order_id: @order.id }, class: 'mcb-form-cta-btn btn btn-large yellow black-text waves-effect waves-light'  %>
+          <%= button_to "Passer au paiement", checkout_create_path, method: :post, remote: true, params: { order_id: @order.id }, class: 'mcb-form-cta-btn btn btn-large green darken-1 white-text waves-effect waves-light'  %>
         </div>
       </div>
     </div>

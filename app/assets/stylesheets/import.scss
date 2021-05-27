@@ -6,7 +6,7 @@ body {
   margin: 0 !important;
 }
 
-.no-maghin-bottom {
+.no-margin-bottom {
   margin-bottom: 0 !important;
 }
 
@@ -17,16 +17,14 @@ body {
 .mcb-header {
   padding: 60px 0 !important;
 
+  @media only screen and (max-width: 480px) {
+    padding: 40px 0 !important;
+  }
+
   &-title {
     font-size: 35px;
     line-height: 1.4em;
-    margin: 0 0 40px;
-  }
-
-  &-subtitle {
-    font-size: 13px;
-    line-height: 1.7em;
-    margin: 0;
+    margin: 0 0 25px;
   }
 }
 
@@ -45,37 +43,62 @@ body {
   }
 }
 
+.mcb-mobile-breadcrumbs {
+  margin: 0 0 40px !important;
+
+  ul {
+    margin: 0;
+
+    li {
+      margin-bottom: 5px;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 .mcb-content {
   margin-top: 50px !important;
 
+  @media only screen and (max-width: 480px) {
+    margin-top: 0 !important;
+
+    .card {
+      margin: 0 0 40px;
+    }
+  }
+
   .card-content {
-    padding: 40px 20px !important;
+    padding: 20px !important;
 
     .card-title {
-      margin-bottom: 30px !important;
+      margin-bottom: 20px !important;
       font-size: 24px;
       line-height: 1em !important;
+      font-weight: 400;
     }
 
     .card-list {
-      margin: 30px 0 0;
+      margin: 20px 0 0;
 
       li {
-        margin: 5px 0;
+        margin: 5px 0 0;
       }
     }
   }
 
   .card-action {
-    padding: 20px 0;
+    padding: 20px !important;
 
     .card-price {
-      font-size: 18px;
+      font-size: 24px;
       line-height: 1em;
     }
 
     .card-atc-btn {
-      margin-top: 10px;
+      margin-top: 15px;
     }
   }
 
@@ -95,7 +118,8 @@ body {
     padding: 10px 30px 40px;
 
     h5 {
-      margin-bottom: 20px;
+      margin: 20px 0 0;
+      line-height: 1.6em;
     }
 
     .field_with_errors {
@@ -128,8 +152,6 @@ body {
   }
 
   p {
-    font-size: 13px;
-    line-height: 1.7em;
     margin-bottom: 40px;
   }
 }

@@ -26,19 +26,19 @@
     </nav>
 
     <div class="container">
-      <div class="row no-maghin-bottom">
-        <div class="col s12 m8 offset-m2 l6 offset-l3 center mcb-header">
+      <div class="row no-margin-bottom">
+        <div class="col s12 m8 offset-m2 l10 offset-l1 center mcb-header">
           <h3 class="mcb-header-title">Réserver mon stage au MMA Camp Brazil</h3>
 
-          <p class="mcb-header-subtitle">
+          <p class="mcb-header-subtitle no-margin-bottom">
             <i class="green darken-2 white-text">Version Béta</i>
             <br>
-            Notre plateforme de réservation en ligne<br>est sécurisée par <u>Stripe</u> et <u>PayPal</u>
+            <small>Notre plateforme de réservation en ligne est sécurisée par <u>Stripe</u> et <u>PayPal</u></small>
           </p>
         </div>
       </div>
 
-      <nav class="mcb-breadcrumbs">
+      <nav class="mcb-breadcrumbs hide-on-med-and-down">
         <div class="nav-wrapper blue darken-4">
           <div class="col s12">
             <%= link_to "(1) Choisir mon Séjour", products_path, class: 'breadcrumb white-text' %>
@@ -48,6 +48,17 @@
           </div>
         </div>
       </nav>
+
+      <div class="row no-margin-bottom hide-on-med-and-up mcb-mobile-breadcrumbs">
+        <div class="col s12 center">
+          <ul>
+            <li><%= link_to "(1) Choisir mon Séjour", products_path, class: 'black-text' %></li>
+            <li><%= link_to "(2) Mon Panier", cart_path(@current_cart), class: 'black-text' %></li>
+            <li><%= link_to "(3) Informations clients", new_order_path, class: 'black-text' %></li>
+            <li><%= link_to "(4) Paiement", products_path, class: 'black-text' %></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="container mcb-content">

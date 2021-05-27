@@ -1,4 +1,4 @@
-<div class="row no-maghin-bottom">
+<div class="row no-margin-bottom">
   <div class="col s12 m7">
     <div class="card white mcb-card-form">
       <h5>Informations de facturation</h5>
@@ -15,7 +15,7 @@
 
       <%= form_for(@order) do |f| %>
         <form>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="input-field col s12 m6">
               <%= f.text_field :first_name, required: true, autofocus: true, placeholder: 'Prénom' %>
             </div>
@@ -23,17 +23,17 @@
               <%= f.text_field :family_name, required: true, autofocus: true, placeholder: 'Nom de famille' %>
             </div>
           </div>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="input-field col s12">
               <%= f.email_field :email, required: true, autofocus: true, placeholder: 'Email' %>
             </div>
           </div>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="input-field col s12">
               <%= f.text_area :address, class: 'materialize-textarea', required: true, autofocus: true, placeholder: 'Adresse' %>
             </div>
           </div>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="input-field col s12 m6">
               <%= f.text_field :city, required: true, autofocus: true, placeholder: 'Ville' %>
             </div>
@@ -41,7 +41,7 @@
               <%= f.text_field :zip_code, required: true, autofocus: true, placeholder: 'Code postal' %>
             </div>
           </div>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="input-field col s12 m6">
               <%= f.text_field :country, required: true, autofocus: true, placeholder: 'Pays' %>
             </div>
@@ -49,9 +49,9 @@
               <%= f.date_field :start_at, class: 'datepicker', required: true %>
             </div>
           </div>
-          <div class="row no-maghin-bottom">
+          <div class="row no-margin-bottom">
             <div class="col s12 m6 offset-m3">
-              <%= f.submit "Passer au paiement", class: 'mcb-form-cta-btn btn btn-large yellow black-text waves-effect waves-light' %>
+              <%= f.submit "Passer au paiement (4/4)", class: 'mcb-form-cta-btn btn yellow black-text waves-effect waves-light' %>
             </div>
           </div>
         </form>

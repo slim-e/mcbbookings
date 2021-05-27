@@ -14,15 +14,15 @@
 
         <div class="card-action white center">
           <span class="card-price black-text"><%= number_to_currency(product.price, separator: ",", delimiter: "", precision: 2, format: "%n €") %></span>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: product.id), class: "center card-atc-btn blue darken-4 yellow-text btn btn-small" %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: product.id), class: "center card-atc-btn green darken-1 white-text btn" %>
         </div>
       </div>
     </div>
   <% end%>
 </div>
 
-<div class="row no-maghin-bottom">
+<div class="row no-margin-bottom">
   <div class="col s12 m4 offset-m4 center">
-    <%= link_to "Voir mon panier", cart_path(@current_cart), class: 'btn-large waves-effect waves-light btn yellow black-text' %>
+    <%= link_to "Voir mon panier (2/4)", cart_path(@current_cart), class: 'btn waves-effect waves-light btn yellow black-text' %>
   </div>
 </div>
