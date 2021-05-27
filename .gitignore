@@ -40,3 +40,4 @@ Application Log
 .bundle
 vendor/*
 .ruby-version
+ngrok
