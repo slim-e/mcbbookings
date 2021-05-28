@@ -24,8 +24,8 @@
             <%= @order.zip_code %><br>
             <%= @order.country %>
             <br><br>
-            <u>Début du stage</u> : <%= @order.start_at.to_date %><br>
-            <u>Fin du stage</u> : <%= @order.end_at.to_date %>
+            <u>Début du stage</u> : <%= @order.start_at.strftime("%d/%m/%Y") %><br>
+            <u>Fin du stage</u> : <%= @order.end_at.strftime("%d/%m/%Y") %>
           </p>
         </div>
       </div>

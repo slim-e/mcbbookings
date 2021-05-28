@@ -6,8 +6,8 @@
       <% if flash[:errors].present? %>
         <div class="mcb-errors">
           <ul>
-            <% flash[:errors].each do |msg| %>
-              <li>* <%= msg %></li>
+            <% flash[:errors].reject { |k| k == :end_at || k == :room }.each do |attr, msg| %>
+              <li>* <%= msg.first %></li>
             <% end %>
           </ul>
         </div>
@@ -45,10 +45,29 @@
             <div class="input-field col s12 m6">
               <%= f.text_field :country, required: true, autofocus: true, placeholder: 'Pays' %>
             </div>
+          </div>
+          <div class="row no-margin-bottom mcb-card-form-start-at-warning grey lighten-4">
+            <div class="col s12">
+              <p>
+                <b>Attention</b>.Veuillez choisir votre date de début de stage en accord avec nos disponibilités.
+                Nous avons <b>4 chambres</b> de <b>2 places</b> chacune.<br><br>
+                La durée de votre stage est de <b><%= @current_cart.number_of_days %></b> jours.<br>
+                Vous pouvez venir à partir du <b><%= @first_available_date.strftime("%d/%m/%Y") %></b>
+              </p>
+            </div>
+          </div>
+          <div class="row no-margin-bottom">
             <div class="input-field col s12 m6">
               <%= f.date_field :start_at, class: 'datepicker', required: true %>
             </div>
           </div>
+          <div class="row no-margin-bottom">
+            <div class="input-field col s12 m6">
+              <span class="green-text darken-2">Un coupon de réduction?</span>
+              <%= f.text_field :coupon, autofocus: true, placeholder: 'Code promo' %>
+            </div>
+          </div>
+
           <div class="row no-margin-bottom">
             <div class="col s12 m6 offset-m3">
               <%= f.submit "Passer au paiement (4/4)", class: 'mcb-form-cta-btn btn yellow black-text waves-effect waves-light' %>

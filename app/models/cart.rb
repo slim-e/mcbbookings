@@ -14,9 +14,17 @@ class Cart < ActiveRecord::Base
 
   def sub_total
     sum = 0
-    line_items.each do |line_item|
-      sum += line_item.total_price
+    line_items.each do |item|
+      sum += item.total_price
     end
     sum
+  end
+
+  def number_of_days
+    number_of_days = 0
+    line_items.each do |item|
+      number_of_days += item.duration_of_stay
+    end
+    number_of_days
   end
 end

@@ -137,6 +137,13 @@ body {
       }
     }
 
+    &-start-at-warning {
+      border: 1px solid #666666;
+      padding: 5px 10px;
+      margin: 5px 0;
+      color: #444444;
+    }
+
     .mcb-form-cta-btn {
       margin-top: 15px;
     }
