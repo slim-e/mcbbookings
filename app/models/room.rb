@@ -11,8 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Room < ApplicationRecord
-  has_many :clients, through: :bookings
+  has_many :orders, dependent: :destroy
 
-  has_many :bookings, inverse_of: :rooms
-  accepts_nested_attributes_for :bookings
+  validates :booked, inclusion: [true, false]
+  validates :number, presence: true, numericality: {only_integer: true}
 end
