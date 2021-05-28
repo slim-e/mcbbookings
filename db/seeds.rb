@@ -27,13 +27,13 @@ puts "\nTotal cart count: #{Cart.all.count}"
 # ROOM
 Room.destroy_all
 room1 = Room.create({number: 1, booked: false})
-room2 = Room.create({number: 1, booked: false})
-room3 = Room.create({number: 1, booked: false})
-room4 = Room.create({number: 1, booked: false})
-room5 = Room.create({number: 1, booked: false})
-room6 = Room.create({number: 1, booked: false})
-room7 = Room.create({number: 1, booked: false})
-room8 = Room.create({number: 1, booked: false})
+room2 = Room.create({number: 2, booked: false})
+room3 = Room.create({number: 3, booked: false})
+room4 = Room.create({number: 4, booked: false})
+room5 = Room.create({number: 5, booked: false})
+room6 = Room.create({number: 6, booked: false})
+room7 = Room.create({number: 7, booked: false})
+room8 = Room.create({number: 8, booked: false})
 
 puts "Total number of rooms: #{Product.all.count}"
 puts "Room 1: #{room1.number} booked: #{room1.booked}"
