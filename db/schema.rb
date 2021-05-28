@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_103801) do
+ActiveRecord::Schema.define(version: 2021_05_28_053455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,10 @@ ActiveRecord::Schema.define(version: 2021_05_27_103801) do
     t.string "stripe_payment_intent_id"
     t.string "stripe_checkout_session_id"
     t.string "stripe_customer_id"
+    t.bigint "room_id"
+    t.datetime "end_at"
+    t.string "coupon"
+    t.index ["room_id"], name: "index_orders_on_room_id"
   end
 
   create_table "products", force: :cascade do |t|

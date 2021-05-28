@@ -24,6 +24,7 @@
 class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_many :products, through: :line_items
+  belongs_to :room
 
   validates :first_name, presence: true, length: {minimum: 3, maximum: 100,
                                                   too_short: "Minimum %{count} caractères.",
@@ -44,14 +45,15 @@ class Order < ApplicationRecord
   validates :zip_code, presence: true, length: {minimum: 3, maximum: 8,
                                                 too_short: "Minimum %{count} caractères.",
                                                 too_long: "Seulement %{count} caractères autorisés."}
-  validates :start_at, presence: true
+  validates :start_at, presence: {message: 'Veuillez modifier la date de début de stage.'}
   validate :start_at_cannot_be_in_the_past
-  validates :pay_method, length: {maximum: 100,
-                                  too_long: "Seulement %{count} caractères autorisés."}
+  validates :end_at, presence: true
   validates :paid, inclusion: [true, false]
   validates :stripe_payment_intent_id, length: {maximum: 100}
   validates :stripe_checkout_session_id, length: {maximum: 100}
   validates :stripe_customer_id, length: {maximum: 100}
+  validates :coupon, length: {maximum: 100,
+                              too_long: "Seulement %{count} caractères autorisés."}
 
   def full_name
     "#{self.first_name} #{self.family_name}"
@@ -67,16 +69,6 @@ class Order < ApplicationRecord
     total
   end
 
-  def end_at
-    total_duration_of_stay = 0
-
-    line_items.each do |item|
-      total_duration_of_stay += item.duration_of_stay
-    end
-
-    start_at + total_duration_of_stay.days
-  end
-
   def stripe_order_name
     stripe_order_name = ""
 
@@ -87,16 +79,25 @@ class Order < ApplicationRecord
     stripe_order_name
   end
 
+  def set_end_at
+    start_at + total_duration_of_stay.days
+  end
+
   protected
 
   def start_at_cannot_be_in_the_past
-    errors.add(:start_at, "Ne peut pas être dans le passé") if start_at.present? && start_at < Date.today
+    errors.add(:start_at, "La date de début de stage ne peut pas être dans le passé") if start_at.present? && start_at < Date.today
   end
-
 
   private
 
-  def first_available_start_date
-    paid_orders = Order.where(paid: true)
+  def total_duration_of_stay
+    total_duration_of_stay = 0
+
+    line_items.each do |item|
+      total_duration_of_stay += item.duration_of_stay
+    end
+
+    total_duration_of_stay
   end
 end
