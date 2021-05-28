@@ -2,16 +2,15 @@
 
 class CheckoutController < ApplicationController
   def new
-    @order = Order.find_by(id: params[:order_id].to_i)
+    @order = Order.find(params[:order_id].to_i)
   end
 
   def create
-    # only if order not paid sinon redirect
-    order = Order.find_by(id: params[:order_id].to_i)
+    order = Order.find(params[:order_id].to_i)
 
     redirect_to root_path && return if order.nil?
 
-    # Setting up Stripe session
+    # Setting up Stripe Session
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
       line_items: [{
@@ -26,10 +25,10 @@ class CheckoutController < ApplicationController
     )
 
     respond_to do |format|
-      format.js # render create.js.erb
+      format.js
     end
   end
 
   def success; end
-
+  def cancel; end
 end
