@@ -1,9 +1,9 @@
 <div class="row">
   <% @products.each do |product| %>
     <div class="col s12 m4">
-      <div class="card yellow">
+      <div class="card mcb-yellow">
         <div class="card-content white-text center">
-          <span class="black-text card-title center"><%= product.name %></span>
+          <span class="card-title center"><%= product.name %></span>
           <i class="black-text card-duration"><%= product.duration_in_days %> jours / <%= product.duration_in_days - 1 %> nuits</i>
           <ul class="black-text card-list">
             <li class="valign-wrapper"><i class="material-icons tiny">add</i>Hébergement (en dortoire)</li>
@@ -14,7 +14,7 @@
 
         <div class="card-action white center">
           <span class="card-price black-text"><%= number_to_currency(product.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
-          <%= button_to "Ajouter au panier", line_items_path(product_id: product.id), class: "center card-atc-btn green darken-1 white-text btn" %>
+          <%= button_to "Ajouter au panier", line_items_path(product_id: product.id), class: "center card-atc-btn mcb-green white-text btn" %>
         </div>
       </div>
     </div>
@@ -23,6 +23,6 @@
 
 <div class="row no-margin-bottom">
   <div class="col s12 m4 offset-m4 center">
-    <%= link_to "Voir mon panier (2/4)", cart_path(@current_cart), class: 'btn waves-effect waves-light btn yellow black-text' %>
+    <%= link_to "Voir mon panier (2/4)", cart_path(@current_cart), class: 'btn waves-effect waves-light btn btn-large mcb-yellow black-text' %>
   </div>
 </div>

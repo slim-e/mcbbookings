@@ -32,7 +32,7 @@
 
       <div class="row no-margin-bottom">
         <div class="col s12 center">
-          <%= button_to "Passer au paiement", checkout_create_path, method: :post, remote: true, params: { order_id: @order.id }, class: 'mcb-form-cta-btn btn btn-large green darken-1 white-text waves-effect waves-light'  %>
+          <%= button_to "Passer au paiement", checkout_create_path, method: :post, remote: true, params: { order_id: @order.id }, class: 'mcb-form-cta-btn btn btn-large mcb-green white-text waves-effect waves-light'  %>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
 
       <li class="collection-item">
         <div>
-          <%= link_to "Modifier mon panier", new_order_path, class: 'yellow-text center' %>
+          <%= link_to "Modifier mon panier", new_order_path, class: 'grey-text darken-3' %>
         </div>
       </li>
     </ul>
@@ -60,8 +60,18 @@
     <ul class="collection with-header">
       <li class="collection-header"><h5>Le Total</h5></li>
       <li class="collection-item">
-        <h6>Montant à payer
+        <h6>Montant Total
           <span class="secondary-content black-text"><%= number_to_currency(@order.total_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
+        </h6>
+      </li>
+      <li class="collection-item">
+        <h6>Coupon de Réduction
+          <span class="secondary-content black-text"><%= number_to_currency(@order.coupon.amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
+        </h6>
+      </li>
+      <li class="collection-item">
+        <h6>Montant à payer
+          <span class="secondary-content black-text"><%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
         </h6>
       </li>
     </ul>
