@@ -51,6 +51,12 @@
       <% end %>
 
       <li class="collection-item">
+        <div>Coupon
+          <span class="secondary-content black-text"><%= @order.coupon || '' %></span>
+        </div>
+      </li>
+
+      <li class="collection-item">
         <div>
           <%= link_to "Modifier mon panier", new_order_path, class: 'grey-text darken-3' %>
         </div>
@@ -64,11 +70,13 @@
           <span class="secondary-content black-text"><%= number_to_currency(@order.total_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
         </h6>
       </li>
-      <li class="collection-item">
-        <h6>Coupon de Réduction
-          <span class="secondary-content black-text"><%= number_to_currency(@order.coupon.amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
-        </h6>
-      </li>
+      <% if @order.coupon.present? %>
+        <li class="collection-item">
+          <h6>Réduction
+            <span class="secondary-content black-text">-<%= number_to_currency(@discount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>
+          </h6>
+        </li>
+      <% end %>
       <li class="collection-item">
         <h6>Montant à payer
           <span class="secondary-content black-text"><%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></span>

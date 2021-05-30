@@ -52,21 +52,14 @@ class Order < ApplicationRecord
   validates :stripe_payment_intent_id, length: {maximum: 100}
   validates :stripe_checkout_session_id, length: {maximum: 100}
   validates :stripe_customer_id, length: {maximum: 100}
+  validates :total_amount, presence: true
+  validates :discounted_amount, presence: true #, numericality: {only_integer: true}
   validates :coupon, length: {maximum: 100,
                               too_long: "Seulement %{count} caractères autorisés."}
 
+
   def full_name
-    "#{self.first_name} #{self.family_name}"
-  end
-
-  def total_amount
-    total = 0
-
-    line_items.each do |item|
-      total += item.total_price
-    end
-
-    total
+    "#{first_name} #{family_name}"
   end
 
   def stripe_order_name

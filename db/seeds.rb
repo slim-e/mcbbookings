@@ -44,3 +44,10 @@ puts "Room 5: #{room5.number} booked: #{room5.booked}"
 puts "Room 6: #{room6.number} booked: #{room6.booked}"
 puts "Room 7: #{room7.number} booked: #{room7.booked}"
 puts "Room 8: #{room8.number} booked: #{room8.booked}"
+
+# DISCOUNT
+Discount.destroy_all
+discount1 = Discount.create({name: "NOMADSLIM", percentage: 10, amount: 0})
+
+puts "Total number of discounts: #{Discount.all.count}"
+puts "Discount1: #{discount1.name} percentage: #{discount1.percentage} amount: #{discount1.amount}"

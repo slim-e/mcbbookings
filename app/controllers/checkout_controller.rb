@@ -3,6 +3,7 @@
 class CheckoutController < ApplicationController
   def new
     @order = Order.find(params[:order_id].to_i)
+    @discount = Orders::DiscountCalculater.new(@order).calculate[:discount_in_eur]
   end
 
   def create
@@ -16,7 +17,7 @@ class CheckoutController < ApplicationController
       line_items: [{
         name: "Commande : #{order.id}",
         description: order.stripe_order_name,
-        amount: (order.total_amount * 100).round, # total amount in cents
+        amount: (order.discounted_amount * 100).round, # total amount in cents
         currency: "eur",
         quantity: 1
       }],
