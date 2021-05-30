@@ -11,7 +11,7 @@ class ProcessEventsJob < ApplicationJob
         # case event.source... when 'stripe'
         Events::StripeHandler.process(event)
         event.update(state: :processed)
-      rescue => e
+      rescue StandardError => e
         event.update(state: :failed, processing_errors: e)
       end
     end

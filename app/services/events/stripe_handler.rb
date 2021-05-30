@@ -9,7 +9,7 @@ module Events
       when "checkout.session.completed"
         checkout_session = stripe_event.data.object
 
-        order_id = checkout_session.display_items.first.custom.name.split(' : ').last.to_i
+        order_id = checkout_session.display_items.first.custom.name.split(" : ").last.to_i
         order = Order.find(order_id)
 
         if order.present?

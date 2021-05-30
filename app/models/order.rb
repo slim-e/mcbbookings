@@ -45,7 +45,7 @@ class Order < ApplicationRecord
   validates :zip_code, presence: true, length: {minimum: 3, maximum: 8,
                                                 too_short: "Minimum %{count} caractères.",
                                                 too_long: "Seulement %{count} caractères autorisés."}
-  validates :start_at, presence: {message: 'Veuillez modifier la date de début de stage.'}
+  validates :start_at, presence: {message: "Veuillez modifier la date de début de stage."}
   validate :start_at_cannot_be_in_the_past
   validates :end_at, presence: true
   validates :paid, inclusion: [true, false]
@@ -79,7 +79,10 @@ class Order < ApplicationRecord
   protected
 
   def start_at_cannot_be_in_the_past
-    errors.add(:start_at, "La date de début de stage ne peut pas être dans le passé") if start_at.present? && start_at < Date.today
+    if start_at.present? && start_at < Date.today
+      errors.add(:start_at,
+                 "La date de début de stage ne peut pas être dans le passé")
+    end
   end
 
   private
