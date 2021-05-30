@@ -30,5 +30,6 @@ class CheckoutController < ApplicationController
   end
 
   def success; end
+
   def cancel; end
 end
