@@ -53,4 +53,4 @@ puts "Total number of discounts: #{Discount.all.count}"
 puts "Discount1: #{discount1.name} percentage: #{discount1.percentage} amount: #{discount1.amount}"
 
 # ADMIN USER
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"], password_confirmation: ENV["ADMIN_PASSWORD"]) if Rails.env.production?
