@@ -1,0 +1,26 @@
+Nouvelle commande sur le site MMA CAMP BRAZIL.
+
+Effectué le : <%= @order.updated_at.strftime("%d/%m/%Y %H-%M") %>
+
+Montant encaissé : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+Paiement effectué sur Stripe :
+
+Détail de la comande :
+
+Prénom : <%= @order.first_name %>
+Nom de Famille : <%= @order.family_name %>
+Email : <%= @order.email %>
+Adresse : <%= @order.address %>
+Ville : <%= @order.city %>
+Code Postal : <%= @order.zip_code %>
+Pays : <%= @order.country %>
+
+Date de début du stage : <%= @order.start_at.strftime("%d/%m/%Y") %>
+Date de fin de stage : <%= @order.end_at.strftime("%d/%m/%Y") %>
+
+Sous-Total : <%= number_to_currency(@order.total_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+Coupon de Réduction : <%= @order.coupon %>
+Montant Total : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+
+(Ceci est un email automatique)
+Oss
