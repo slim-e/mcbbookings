@@ -59,7 +59,11 @@ class Order < ApplicationRecord
 
 
   def full_name
-    "#{first_name} #{family_name}"
+    "#{first_name.capitalize} #{family_name.capitalize}"
+  end
+
+  def full_address
+    "#{address}, #{zip_code} #{city.capitalize} (#{country})"
   end
 
   def stripe_order_name
