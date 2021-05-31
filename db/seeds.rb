@@ -47,7 +47,7 @@ puts "Room 8: #{room8.number} booked: #{room8.booked}"
 
 # DISCOUNT
 Discount.destroy_all
-discount1 = Discount.create({name: "NOMADSLIM", percentage: 10, amount: 0})
+discount1 = Discount.create({name: "NOMADSLIM", percentage: 5, amount: 0})
 
 puts "Total number of discounts: #{Discount.all.count}"
 puts "Discount1: #{discount1.name} percentage: #{discount1.percentage} amount: #{discount1.amount}"
