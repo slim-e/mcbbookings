@@ -53,7 +53,7 @@ class Order < ApplicationRecord
   validates :stripe_checkout_session_id, length: {maximum: 100}
   validates :stripe_customer_id, length: {maximum: 100}
   validates :total_amount, presence: true
-  validates :discounted_amount, presence: true #, numericality: {only_integer: true}
+  validates :discounted_amount, presence: true
   validates :coupon, length: {maximum: 100,
                               too_long: "Seulement %{count} caractères autorisés."}
 
