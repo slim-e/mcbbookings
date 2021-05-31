@@ -51,3 +51,4 @@ discount1 = Discount.create({name: "NOMADSLIM", percentage: 10, amount: 0})
 
 puts "Total number of discounts: #{Discount.all.count}"
 puts "Discount1: #{discount1.name} percentage: #{discount1.percentage} amount: #{discount1.amount}"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

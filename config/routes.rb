@@ -4,6 +4,9 @@
 #
 
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   root "products#index"
 
   post "/webhook_events/:source", to: "webhook_events#create"

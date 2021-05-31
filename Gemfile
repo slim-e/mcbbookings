@@ -33,6 +33,10 @@ gem "simple_calendar", "~> 2.4"
 gem "simple_form"
 gem "stripe"
 
+gem 'activeadmin'
+gem 'devise'
+gem 'rails-i18n'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
