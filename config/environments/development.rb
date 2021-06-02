@@ -41,8 +41,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => NV["MAILGUN_ADDRESS"],
-    :port => NV["MAILGUN_PORT"],
+    :address => ENV["MAILGUN_ADDRESS"],
+    :port => ENV["MAILGUN_PORT"],
     :domain => ENV["MAILGUN_DOMAIN"],
     :user_name => ENV["MAILGUN_USERNAME"],
     :password => ENV["MAILGUN_PASSWORD"]
