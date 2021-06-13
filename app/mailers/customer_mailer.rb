@@ -21,4 +21,9 @@ class CustomerMailer < ApplicationMailer
 
     mail to: @order.email, subject: "Dernière étape pour valider votre séjour au MMA Camp Brazil."
   end
+
+  def faq(order_id)
+    @order = Order.find(order_id)
+    mail to: @order.email, subject: "Foire aux questions - MMA Camp Brazil"
+  end
 end
