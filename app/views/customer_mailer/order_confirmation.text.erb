@@ -1,0 +1,43 @@
+Bonjour,
+
+Merci de votre réservation.
+
+Voici un récapitulatif de votre commande.
+
+Commande effectuée le : <%= @order.updated_at.strftime("%d/%m/%Y %H-%M") %>
+
+Informations personnelles :
+
+Prénom : <%= @order.first_name %>
+Nom de Famille : <%= @order.family_name %>
+Email : <%= @order.email %>
+Adresse : <%= @order.address %>
+Ville : <%= @order.city %>
+Code Postal : <%= @order.zip_code %>
+Pays : <%= @order.country %>
+
+Informations sur le stage :
+
+Date de début du stage : <%= @order.start_at.strftime("%d/%m/%Y") %>
+Date de fin de stage : <%= @order.end_at.strftime("%d/%m/%Y") %>
+Chambre : n°<%= @order.room.number %>
+
+Informations sur la commande :
+
+Produits :
+<% @order.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
+  <%= line_item.product.name %> x <%= line_item.quantity %>
+<% end %>
+Sous-Total : <%= number_to_currency(@order.total_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+Coupon de Réduction : <%= @order.coupon %>
+Montant Total : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+
+Si certaines informations ne sont pas correctes ou si vous avez des questions, n'hésitez pas à nous contacter via Whatsapp si nécessaire.
+
+Dans un instant nous vous enverrons un email avec la marche à suivre pour finaliser votre réservation de stage au Mma Camp Brazil.
+
+Oss
+Thibault Marino
+Whatsapp +55 (11)984683942
+resa@mmacampbrazil.com
+www.mmacampbrazil.com
