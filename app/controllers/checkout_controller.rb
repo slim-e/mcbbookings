@@ -15,7 +15,7 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ["card"],
       line_items: [{
-        name: "Commande : #{order.id}",
+        name: "Commande : #{order.id}", # Important for Events::StripeHandler
         description: order.stripe_order_name,
         amount: (order.discounted_amount * 100).round, # total amount in cents
         currency: "eur",

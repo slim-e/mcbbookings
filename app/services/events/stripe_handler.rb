@@ -9,10 +9,12 @@ module Events
       when "checkout.session.completed"
         checkout_session = stripe_event.data.object
 
-        order_id = checkout_session.display_items.first.custom.name.split(" : ").last.to_i
+        # Find order in DB
+        order_id = checkout_session.display_items.first.custom.name.split(" : ").last.to_i # Set in CheckoutController#create
         order = Order.find(order_id)
 
         if order.present?
+          # Update order
           order.update({
                          email: checkout_session.customer_details.email,
                          stripe_checkout_session_id: checkout_session.id,
@@ -21,6 +23,7 @@ module Events
                          paid: checkout_session.payment_status == "paid",
                          pay_method: "card"
                        })
+        # else # Handle errors
         end
       end
     end
