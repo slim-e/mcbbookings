@@ -1,28 +1,33 @@
+<i>(Ceci est un email automatique)</i>
+<br>
 <h3>Nouvelle commande sur le site MMA CAMP BRAZIL.</h3>
-
 <p>
-  Effectué le : <%= @order.updated_at.strftime("%d/%m/%Y %H-%M") %>
+  Effectuée le : <%= @order.updated_at.strftime("%d/%m/%Y %H-%M") %>
   <br><br>
   Montant encaissé : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %><br>
-  Paiement effectué sur Stripe :
-  <br><br>
-  Détail de la comande :
-  <br><br>
+  <br>
+  <b>Informations personnelles :</b><br>
   Prénom : <%= @order.first_name %><br>
   Nom de Famille : <%= @order.family_name %><br>
   Email : <%= @order.email %><br>
   Adresse : <%= @order.address %><br>
   Ville : <%= @order.city %><br>
   Code Postal : <%= @order.zip_code %><br>
-  Pays : <%= @order.country %>
-  <br><br>
-  Date de début du stage : <%= @order.start_at.strftime("%d/%m/%Y") %><br>
-  Date de fin de stage : <%= @order.end_at.strftime("%d/%m/%Y") %>
+  Pays : <%= @order.country %><br><br>
   <br>
+  <b>Information sur le séjour :</b><br>
+  Chambre : n°<%= @order.room.number %><br>
+  Date de début du stage : <%= @order.start_at.strftime("%d/%m/%Y") %><br>
+  Date de fin de stage : <%= @order.end_at.strftime("%d/%m/%Y") %><br>
+  <br>
+  <b>Informations sur la commande :</b><br>
+  Produits :<br>
+  <% @order.line_items.sort_by(&:created_at).reverse.each do |line_item| %>
+  &nbsp;&nbsp;-&nbsp;<%= line_item.product.name %> x <%= line_item.quantity %><br>
+  <% end %>
   Sous-Total : <%= number_to_currency(@order.total_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %><br>
   Coupon de Réduction : <%= @order.coupon %><br>
-  Montant Total : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
-  <br><br><br>
-  (Ceci est un email automatique)<br>
-  Oss
+  Montant Total : <%= number_to_currency(@order.discounted_amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %><br>
+  <br>
+  <b>Oss ;)</b>
 </p>
