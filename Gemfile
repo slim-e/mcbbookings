@@ -66,6 +66,7 @@ group :development do
   gem "reek"
   gem "rubocop", require: false
   gem "rubycritic", require: false
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
