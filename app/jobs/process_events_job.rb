@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProcessEventsJob < ApplicationJob
   queue_as :default
 
