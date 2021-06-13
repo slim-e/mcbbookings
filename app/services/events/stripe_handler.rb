@@ -23,6 +23,15 @@ module Events
                          paid: checkout_session.payment_status == "paid",
                          pay_method: "card"
                        })
+
+          # Notify customer by email
+          CustomerMailer.order_confirmation(order_id).deliver_now # !
+          CustomerMailer.send_contract(order_id).deliver_later(wait_until: 30.seconds.from_now)
+          CustomerMailer.faq(order_id).deliver_later(wait_until: 1.day.from_now)
+          CustomerMailer.keep_in_touch(order_id).deliver_later(wait_until: 7.days.from_now)
+
+          # Notify admin by email
+          AdminMailer.new_order_notification(order_id).deliver_now
         # else # Handle errors
         end
       end
