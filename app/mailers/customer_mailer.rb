@@ -26,4 +26,9 @@ class CustomerMailer < ApplicationMailer
     @order = Order.find(order_id)
     mail to: @order.email, subject: "Foire aux questions - MMA Camp Brazil"
   end
+
+  def keep_in_touch(order_id)
+    @order = Order.find(order_id)
+    mail to: @order.email, subject: "Tu veux voir à quoi ressemble le MMA Camp Brazil?"
+  end
 end
