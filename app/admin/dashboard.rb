@@ -7,7 +7,7 @@ end
 ActiveAdmin.register Order do
   includes :line_items, :products
   menu priority: 2, label: "Commandes"
-  actions :all, except: [:edit, :update, :destroy]
+  actions :all, except: [:destroy]
   permit_params :start_at
 
   sidebar "Détails de la commande", only: [:show] do
@@ -110,7 +110,7 @@ end
 
 ActiveAdmin.register Discount do
   menu priority: 5, label: "Coupons de réduction"
-  actions :all, except: [:destroy]
+  actions :all
 
   index do
     selectable_column
